@@ -1,0 +1,36 @@
+<div class="characterInfo">
+  <h1 align="center"><p> Characters: </p></h1>
+  <p align="center">
+    <button (click)="onSetGender('both')">Both</button>
+    <button (click)="onSetGender('male')">Male</button>
+    <button (click)="onSetGender('female')">Female</button>
+  </p>
+
+  <div class="card-deck">
+    <div class="container" *ngFor="let character of characters | async | filterGender : gender">
+      <div class="card" align="center">
+        <div class="card-body">
+          <p class="card-text">
+            <b>name:</b> {{ character.name }}<br>
+            <b>height:</b> {{character.height}}<br>
+            <b>mass:</b> {{character.mass}}<br>
+            <b>hair_color:</b> {{character.hair_color}}<br>
+            <b>skin_color: </b>{{character.skin_color}}<br>
+            <b>eye_color: </b>{{character.eye_color}}<br>
+            <b>birth_year:</b> {{ character.birth_year }}<br>
+            <b>gender:</b> {{character.gender}}<br>
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted" align="right"><font size="2"><p align="right">
+            тут будет кнопка "Цитаты"
+          </p>
+          </font>
+          </small>
+        </div>
+
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
