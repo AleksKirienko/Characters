@@ -6,8 +6,7 @@ import { QuotesComponent } from './components/quotes/quotes.component';
 
 const routes: Routes = [
   {path: '', component: CharacterComponent},
-  // {path: 'quotes', component: QuotesComponent},
-  // {path: 'quotes/:author', component: QuotesComponent},
+  {path: 'quote/:author', component: QuotesComponent},
   {path: '**', component: NotFoundComponent}
 ];
 

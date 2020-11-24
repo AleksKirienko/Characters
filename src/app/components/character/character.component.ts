@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Character } from '../../core/models/character';
-import { ApiService } from '../../core/api.service';
+import { ApiService } from '../../core/services/api.service';
 import { Status } from '../../core/models/status';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-character',
@@ -14,11 +15,16 @@ export class CharacterComponent {
   status: Status = 'both';
   characters: Observable<Character[]> = this.apiService.loadCharacters();
 
-  constructor(private apiService: ApiService) {
+  // tslint:disable-next-line:variable-name
+  constructor(private apiService: ApiService, private _router: Router) {
   }
 
-  // tslint:disable-next-line:typedef
-  onSetStatus(status: Status) {
+  onSetStatus(status: Status): void {
     this.status = status;
+  }
+
+  getQuote(author): void {
+    this._router.navigate(['quote', author.replace(' ', '+')]);
+    // this._router.navigateByUrl('quote/' + author);
   }
 }

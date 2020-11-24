@@ -22,7 +22,8 @@
         <div class="card-footer">
           <small class="text-muted" align="right">
             <p align="right">
-              <button>Quotes</button>
+<!--              <button [routerLink]="['quote', character.name]">Quotes</button>-->
+              <button (click)="getQuote(character.name)">Quotes</button>
             </p>
           </small>
         </div>
