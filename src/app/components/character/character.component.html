@@ -1,34 +1,31 @@
 <div class="characterInfo">
   <h1 align="center"><p> Characters: </p></h1>
   <p align="center">
-    <button (click)="onSetGender('both')">Both</button>
-    <button (click)="onSetGender('male')">Male</button>
-    <button (click)="onSetGender('female')">Female</button>
+    <button (click)="onSetStatus('both')">Both</button>
+    <button (click)="onSetStatus('alive')">Alive</button>
+    <button (click)="onSetStatus('presumed dead')">Presumed dead</button>
+    <button (click)="onSetStatus('deceased')">Deceased</button>
   </p>
-
   <div class="card-deck">
-    <div class="container" *ngFor="let character of characters | async | filterGender : gender">
+    <div class="container" *ngFor="let character of characters | async | filterStatus : status">
       <div class="card" align="center">
         <div class="card-body">
           <p class="card-text">
+            <img class="card-img-top" src="{{character.img}}" vspace="5" hspace="5" alt="Card image cap" align="left">
             <b>name:</b> {{ character.name }}<br>
-            <b>height:</b> {{character.height}}<br>
-            <b>mass:</b> {{character.mass}}<br>
-            <b>hair_color:</b> {{character.hair_color}}<br>
-            <b>skin_color: </b>{{character.skin_color}}<br>
-            <b>eye_color: </b>{{character.eye_color}}<br>
-            <b>birth_year:</b> {{ character.birth_year }}<br>
-            <b>gender:</b> {{character.gender}}<br>
+            <b>nickname:</b> {{ character.nickname }}<br>
+            <b>birthday:</b> {{ character.birthday }}<br>
+            <b>status:</b> {{ character.status }}<br>
+            <b>portrayed:</b> {{ character.portrayed }}<br>
           </p>
         </div>
         <div class="card-footer">
           <small class="text-muted" align="right">
             <p align="right">
-              <button onClick="window.location.href='http://localhost:4200/quotes'">Quotes</button>
+              <button>Quotes</button>
             </p>
           </small>
         </div>
-
       </div>
       <br>
     </div>

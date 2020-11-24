@@ -1,10 +1,12 @@
 export interface Character {
+  id: number;
   name: string;
-  height: number;
-  mass: number;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  gender: string;
-  birth_year: string;
+  birthday: string;
+  occupation: [];
+  img: string;
+  status: string;
+  nickname: string;
+  appearance: [];
+  portrayed: string;
+  category: [];
 }

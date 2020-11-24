@@ -5,17 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './components/character/character.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FilterGenderPipe } from './core/pipes/filter-gender.pipe';
+import { FilterStatusPipe } from './core/pipes/filter-status.pipe';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { QuotesComponent } from './components/quotes/quotes.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterComponent,
-    FilterGenderPipe,
+    FilterStatusPipe,
     NotFoundComponent,
-    QuotesComponent
+    QuotesComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
