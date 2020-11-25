@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Character } from '../../core/models/character';
-import { ApiService } from '../../core/services/api.service';
+import { CharacterService } from '../../core/services/character.service';
 import { Status } from '../../core/models/status';
 import { Router } from '@angular/router';
 
@@ -16,7 +16,7 @@ export class CharacterComponent {
   characters: Observable<Character[]> = this.apiService.loadCharacters();
 
   // tslint:disable-next-line:variable-name
-  constructor(private apiService: ApiService, private _router: Router) {
+  constructor(private apiService: CharacterService, private _router: Router) {
   }
 
   onSetStatus(status: Status): void {

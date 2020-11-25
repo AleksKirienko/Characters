@@ -7,7 +7,7 @@ import { Character } from '../models/character';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class CharacterService {
 
   constructor(private http: HttpClient) {
   }

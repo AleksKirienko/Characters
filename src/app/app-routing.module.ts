@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { CharacterComponent } from './components/character/character.component';
-import { QuotesComponent } from './components/quotes/quotes.component';
+import { CharacterComponent } from './pages/character/character.component';
+import { QuotesComponent } from './pages/quotes/quotes.component';
 
 const routes: Routes = [
   {path: '', component: CharacterComponent},
