@@ -1,0 +1,36 @@
+<div class="login">
+  <div class="card-deck">
+    <div class="container">
+      <div class="card" align="center">
+        <div class="card-body">
+          <h3 class="card-title" align="center">Введите свои данные</h3>
+          <br>
+          <form [formGroup]="fullNameControl" (submit)="onSubmit()">
+            <p><input id="firstName" formControlName="firstName" placeholder="Имя"></p>
+            <p><input id="lastName" formControlName="lastName" placeholder="Фамилия"></p>
+            <p><input id="email" formControlName="email" placeholder="Email"><font size="5" color="red"> *</font></p>
+            <div class="error" *ngIf="isControlInvalid('email')">
+              <p>почта некорректна, попробуй ещё раз</p>
+            </div>
+            <p><input formControlName="password" type="password" placeholder="Пароль">
+              <font size="5" color="red">*</font></p>
+            <div class="error" *ngIf="isControlInvalid('password')">
+              пароль должен содержать цифры, буквы и символы
+            </div>
+
+            <p><input formControlName="secondPass" type="password" placeholder="Повторите пароль">
+              <font size="5" color="red">*</font></p>
+            <p><font size="5" color="red">*</font> обязательные поля для заполнения</p>
+            <p><input type="submit" (click)="loginClick()" value="Зарегистрироваться"></p>
+
+          </form>
+
+          <div class="logMessage">
+            {{clickMessage}}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
