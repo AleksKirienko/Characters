@@ -17,14 +17,6 @@ export class AuthorizationComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-
-    this.fullNameControl = new FormGroup({
-      firstName: new FormControl(),
-      lastName: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      secondPass: new FormControl()
-    });
     this.fullNameControl.valueChanges.subscribe(value => console.log(value));
   }
 
