@@ -15,6 +15,13 @@ export class AuthorizationComponent implements OnInit {
   clickMessage = '';
   fullNameControl: FormGroup;
 
+  // tslint:disable-next-line:typedef
+  private static checkPasswords(group: FormGroup) {
+    const pass = group.get('password').value;
+    const confirmPass = group.get('secondPass').value;
+    return pass === confirmPass ? null : {notSame: true};
+  }
+
   ngOnInit(): void {
     this.initForm();
     this.fullNameControl.valueChanges.subscribe(value => console.log(value));
@@ -60,7 +67,7 @@ export class AuthorizationComponent implements OnInit {
         RxwebValidators.compare({fieldName: 'password'})
         // this.customValidator
       ]]
-    }, {validator: this.checkPasswords});
+    }, {validator: AuthorizationComponent.checkPasswords});
 
   }
 
@@ -76,13 +83,11 @@ export class AuthorizationComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   loginClick() {
-    this.clickMessage = 'Пользователь зарегистрирован!';
-  }
-
-  // tslint:disable-next-line:typedef
-  private checkPasswords(group: FormGroup) {
-    const pass = group.get('password').value;
-    const confirmPass = group.get('secondPass').value;
-    return pass === confirmPass ? null : {notSame: true};
+    // tslint:disable-next-line:max-line-length
+    if (this.isControlInvalid('email') === false || this.isControlInvalid('password') === false || this.isControlInvalid('secondPass') === false) {
+      this.clickMessage = 'Не все поля введены!';
+    } else {
+      this.clickMessage = 'Пользователь зарегистрирован!';
+    }
   }
 }
