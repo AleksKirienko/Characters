@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Character } from '../models/character';
-import { Status } from '../models/status';
+import { Character } from '../../core/models/character';
+import { Status } from '../../core/models/status';
 
 @Pipe({
   name: 'filterStatus'

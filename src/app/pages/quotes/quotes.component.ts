@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Quote } from '../../core/models/quote';
-import { QuoteService } from '../../core/services/quote.service';
+import { ApiService } from '../../core/services/api/api.service';
 
 @Component({
   selector: 'app-quotes',
@@ -15,7 +15,7 @@ export class QuotesComponent implements OnInit, OnDestroy {
   quotes: Observable<Quote[]>;
   private subs: Subscription = new Subscription();
 
-  constructor(private quoteService: QuoteService, private route: ActivatedRoute) {
+  constructor(private quoteService: ApiService, private route: ActivatedRoute) {
 
     this.subs.add(this.route.params.subscribe(params => {
       this.author = params.author.replace(' ', '+');
